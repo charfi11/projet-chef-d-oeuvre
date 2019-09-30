@@ -1,0 +1,200 @@
+.grp_entete {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    margin-top: 1%;
+}
+
+.img_grp {
+   width: 7%;
+   border-radius: 50%;
+   height: 7%;
+}
+
+.block_training_groupe {
+    display: none;
+    width: 58%;
+}
+
+.block_title {
+    width: 100%;
+}
+
+ul li {
+    list-style-type: none;
+    display: inline;
+}
+
+.block_groupe_event {
+    display: none;
+    width: 58%;
+}
+
+.card_training {
+    width: 100%!important;
+    border-radius: 0%!important;
+}
+
+.card_event {
+    width: 100%!important;
+    border-radius: 0%!important;
+    color: white;
+}
+
+.card img {
+    filter: contrast(50%);
+}
+
+.card:hover img {
+    filter: contrast(100%);
+    transition: 200ms;
+}
+
+.card:hover {
+    transform: scale(1.02);
+    transition: 250ms;
+    cursor: pointer;
+}
+
+.grp_head {
+    background: rgba(0,0,0,0.5);
+}
+
+.grp .title_grp {
+    margin-top: 3%;
+    margin-right: 25%;
+}
+
+.grp .title_modo {
+    margin-right: 25%;
+}
+
+.navig_grp {
+    width: 100%;
+    margin: 0;
+}
+
+span {
+    cursor: pointer;
+}
+
+.cModalIframeConteneur img {
+    border: 0;
+    height: 14em;
+    left: 0;
+    top: 0;
+    width: 80%;
+ }
+
+ #box_mess {
+     display: none;
+ }
+
+ .drop_mess {
+     cursor: pointer;
+ }
+
+ @media screen and (max-width: 1200px){
+     .grp_head img{
+         width: 10%;
+     }
+    .img_grp {
+        width: 15%;
+        border-radius: 50%;
+        height: 15%;
+     }
+    .block_groupe_event{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 5%;
+    }
+    .block_train{
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+    }
+    .block_user{
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+    }
+    h4{
+        font-size: 1.1em;
+    }
+    h3{
+        font-size: 1.1em;
+    }
+    .block_training_groupe{
+        width: 100%;
+    }
+    .card_training{
+        width: 100%;
+    }
+    .block_groupe_event{
+        width: 100%;
+    }
+    .card_event{
+        width: 100%;
+    }
+
+@media screen and (max-width: 1300px){
+    .grp_head img{
+        width: 8%;
+    }
+    .img_grp {
+        width: 5%;
+        border-radius: 50%;
+        height: 5%;
+     }
+}
+
+@media screen and (max-width: 500px){
+    .grp_head img{
+        width: 15%;
+        margin-top: 1%!important;
+    }
+    .img_grp {
+        width: 13%;
+        border-radius: 50%;
+        height: 13%;
+     }
+    .block_groupe_event{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 5%;
+    }
+    .block_train{
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+    }
+    .block_user{
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+    }
+    h4{
+        font-size: 1.1em;
+    }
+    h3{
+        font-size: 1.1em;
+    }
+    .block_training_groupe{
+        width: 100%;
+    }
+    .card_training{
+        width: 100%;
+    }
+    .block_groupe_event{
+        width: 100%;
+    }
+    .card_event{
+        width: 100%;
+    }
+}
+ }
+
+

@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+<link href="/css/connexion.css" rel="stylesheet">
+{% endblock %}
+{% block title %}Login{% endblock %}
+
+{% block body %}
+<div class="bg">
+        <div class="d-flex flex-column justify-content-center mx-auto my-2 px-4 py-2 mt-5 mb-5 box-form">
+            <h3 class="text-center font-weight-bold text-white">Connexion <i class="fas fa-user-ninja"></i></h3>
+            <p class="text-center font-italic text-white">*connecter vous avec votre pseudonyme</p>
+            {% if error %}
+                <div class="alert alert-danger">Mauvais identifiant ou mot de passe</div>
+            {% endif %}
+            <form method="post" action="{{ path('login') }}">
+                <input type="text" class="w-100 p-3 my-3 registration form-control" required name="_username" value="{{ last_username }}" placeholder="Pseudo" id="inputEmail" required>
+                <input type="password" class="w-100 p-3 my-3 registration form-control" required name="_password" placeholder="Mot de Passe" id="inputPassword" required>
+
+                <div class="d-flex justify-content-center mb-2">
+                    <button class="btn btn-success" type="submit">Connexion</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+{% for class, messages in app.flashes %}
+    {% for message in messages %}
+        <div class="flash-{{ class }}">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endfor %}
+{% endblock %}

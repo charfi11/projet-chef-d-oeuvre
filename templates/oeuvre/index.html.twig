@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}<link href="css/index.css"  rel="stylesheet">{% endblock %}
+{% block title %}{% endblock %}
+
+{% block body %}
+
+<section>
+<div class="section_img_top">
+    <div class="zoom">
+            <a href="{{ path('groupe')}}">
+        <h1 class="card_h1">GROUPE</h1>
+<img src="/img/event.jpg" alt="" class="img_section" id="img_index1">
+<p class="txt_after" id="txt1">Accédez à cette section pour créer votre groupe.</p>
+            </a>
+    </div>
+    <div class="zoom">
+            <a href="{{ path('training') }}">
+            <h1 class="card_h1">TRAINING</h1>
+<img src="/img/moves.jpg" alt="" class="img_section" id="img_index2">
+<p class="txt_after" id="txt2">Accédez à cette section pour vous créer des entraînements.</p>
+</a>
+</div>
+</div>
+<div class="section_img_bottom">
+        <div class="zoom">
+                <a href="{{ path('event')}}">
+                <h1 class="card_h1">EVENTS</h1>
+                <img src="/img/agenda.jpg" alt="" class="img_section" id="img_index3">
+                </a>
+                    </div>
+                    <div class="zoom">
+                            <a href="{{ path('move')}}">
+                            <h1 class="card_h1">MOVES</h1>
+                <img src="../img/training.jpg" alt="" class="img_section" id="img_index4">
+                </a>
+                </div>
+        </div>
+        </section>
+
+        {% endblock %}

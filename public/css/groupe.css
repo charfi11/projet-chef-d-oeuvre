@@ -1,0 +1,92 @@
+.card img {
+    filter: contrast(50%);
+}
+
+.card:hover img {
+    filter: contrast(100%);
+    transition: 200ms;
+}
+
+.card:hover {
+    transform: scale(1.02);
+    transition: 250ms;
+}
+
+.card h5, p {
+    color: black;
+}
+
+.box-form {
+    border-radius: 1rem; 
+    box-shadow: 0 0.3rem 1rem 0 rgba(0, 0, 0, 0.4); 
+    width: 70%; 
+    height: 400px; 
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  form {
+      width: 90%;
+  }
+
+  label {
+      color: white;
+      margin-bottom: 1%;
+      margin-top: 2%;
+  }
+
+  .bg {
+      display: none;
+  }
+
+  .alert {
+      display: none;
+  }
+
+  
+.alert-dismissible .close{
+      color: white;
+  }
+
+.bggroup {
+    width: 50%;
+}
+
+  @media screen and (max-width: 768px){
+    .groupe_show {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .card {
+        margin-bottom: 5%;
+    }
+    .box-form {
+        width: 90%;
+    }
+    h1 {
+        font-size: 2.5em;
+    }
+    h2 {
+        font-size: 2em;
+    }
+
+@media screen and (max-width: 500px){
+    .groupe_show {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .card {
+        margin-bottom: 5%;
+    }
+    .box-form {
+        width: 90%;
+    }
+    h1 {
+        font-size: 2.5em;
+    }
+    h2 {
+        font-size: 2em;
+    }
+}
+  }

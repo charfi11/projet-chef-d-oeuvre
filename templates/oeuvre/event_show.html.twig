@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+<link href="/css/event.css" rel="stylesheet">
+{% endblock %}
+{% block title %}show{% endblock %}
+
+{% block body %}
+<div class="categorieeventtitle bg-warning text-white">Choisir catégorie</div>
+<div class="boucle_categorie_event">
+{% for categories in typeEvent %}
+<a href="{{path('event_show',{'id': categories.id})}}" class="event_get bg-primary"><p>{{categories.name}}</p></a>
+{% endfor %}
+</div>
+
+<div class="place_bloc_event">
+{% for events in event_show %}
+<div class="card card_event bg-dark">
+        <div class="card-header">
+                {{ events.name }}
+        </div>
+        <div class="card-body">
+          <p class="card-title"></p>{{ events.date | date('d/m/y')}}</p>
+          <p class="card-text">{{ events.lieu}}</p>
+          <p class="card-text">{{ events.commentaire }}</p>
+          <a href="{{ path('eventEdit', {'id': events.id}) }}" class="btn btn-info">Modifier</a>
+          <a href="{{ path('deleteevent', {'id': events.id}) }}" class="btn btn-warning mt-3 mb-3" onclick="return confirm('sure to delete')">DELETE</a>
+        </div>
+      </div>
+{% endfor %}
+</div>
+
+{% endblock %}
+
+{% block javascripts %}
+<script>
+  $( ".categorieeventtitle" ).click(function() {
+  $( ".boucle_categorie_event" ).slideToggle( "slow" );
+});
+</script>
+{% endblock %}

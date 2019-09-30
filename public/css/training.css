@@ -1,0 +1,45 @@
+.box-form {
+    border-radius: 1rem; 
+    box-shadow: 0 0.3rem 1rem 0 rgba(0, 0, 0, 0.4); 
+    width: 70%; 
+    height: auto;
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+
+  label {
+      color: white;
+      margin-bottom: 2%;
+      margin-top: 2%;
+  }
+
+  legend {
+      color: white;
+  }
+
+ .bg {
+     display: none;
+ }
+
+ @media screen and (max-width: 500px){
+    .box-form {
+        width: 90%;
+    }
+    h1 {
+        font-size: 2.5em;
+    }
+    h2 {
+        font-size: 2em;
+    }
+    .block_card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+   }

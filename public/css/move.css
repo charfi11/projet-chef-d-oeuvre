@@ -1,0 +1,130 @@
+.move_get {
+    display: flex;
+     justify-content: center;
+    text-decoration: none;
+    color: white;
+    background-color:#4169E1;
+    width: 20%;
+    margin-left: 0.1%;
+}
+
+.move_get p {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.move_get:hover {
+    color: white;
+    text-decoration: none;
+    background-color: #4682B4;
+    transition: 200ms;
+}
+
+.bloc_move {
+    display: flex;
+    justify-content: space-between;
+    height: auto;
+    width: 100%;
+}
+
+.tuto {
+    width: 40%;
+}
+
+.tuto iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.move_content {
+    width: 100%;
+}
+
+.boucle_categorie_move {
+    display: flex;
+    justify-content: center;
+}
+
+.title_move {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    margin: 0 1% 0;
+    color: black;
+    font-size: 2em;
+}
+
+.resume_move {
+    background-color: white;
+    color: black;
+    width: 100%;
+    height: 64%;
+    text-align: initial;
+}
+
+.move_content_first
+{ 
+    display: flex;
+    height: 36%;
+    background-color: 	white;
+    border-bottom: solid 1px #708090;
+}
+
+.level_move {
+    display: flex;
+    text-align: center;
+    color: white;
+    background-color: #ff9900;
+    width: 10%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    border-top-left-radius: 1.5rem;
+}
+
+.card_move {
+    display: flex;
+    width: 100%;
+    z-index: 3;
+}
+
+.categorietitle {
+    display: none;
+}
+
+.cModalIframeConteneur iframe {
+    border: 0;
+    height: 18em;
+    left: 0;
+    top: 0;
+    width: 100%;
+ }
+
+@media screen and (max-width: 500px){
+.card_move {
+    display: flex;
+    flex-direction: column;
+}
+.tuto {
+    width: 100%;
+    height: 12em;
+}
+.move_content {
+    display: none;
+}
+.boucle_categorie_move {
+    display: flex;
+    flex-direction: column;
+    display: none;
+}
+.move_get {
+    width: 100%;
+}
+.categorietitle {
+    display: block;
+}
+.categorietitle:hover{
+    cursor: pointer;
+}
+   }
+

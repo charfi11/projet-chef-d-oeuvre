@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+<link href="/css/training.css"  rel="stylesheet">
+{% endblock %}
+{% block title %}training{% endblock %}
+
+{%  block body %}
+
+<main>
+        <h1 class="mb-3 mt-3">AJOUTER DES ENTRAINEMENTS</h1>
+        <button class="btn btn-primary" id="btn_form">Cliquez pour créer un entraînement</button>
+
+        <div class="bg">
+                <div class="d-flex flex-column justify-content-center mx-auto my-2 px-4 py-2 mt-5 mb-5 box-form">
+        {{ form_start(FormTrainingType) }}
+
+        {{ form_row(FormTrainingType.date, {'legend': "Date"}) }}
+        {{ form_row(FormTrainingType.lieu, {'label': 'Lieu'}) }}
+        {{ form_row(FormTrainingType.duree, {'legend': 'Durée'}) }}
+        {{ form_label(FormTrainingType.commentaire) }}
+        {{ form_widget(FormTrainingType.commentaire) }}
+
+        {{ form_row(FormTrainingType.selectMove, {'attr': {
+                'class' : 'move selectpicker',
+                'data-live-search' : "true"
+            }}) }}
+        
+        <button type="submit" class="btn btn-success mt-3">valider</button>
+        
+        {{ form_end(FormTrainingType) }}
+
+</div>
+</div>
+
+<h2 class="subtitle_training mt-5 mb-4">Vos entrainements</h2>
+<div class="d-flex justify-content-center mt-3 mb-4 block_card">
+                {% for training in app.user.userTraining | reverse %}
+                <div class="card bg-light mb-3 mr-3" style="max-width: 20rem;">
+                        <div class="card-header">{{ training.date | date('d/m/y') }}</div>
+                        <div class="card-body">
+                                <h5 class="card-text">{{training.lieu }}</h5>
+                                <p class="card-text">{{training.commentaire }}</p>
+                                {% for selected in training.selectMove %}
+                                {{ selected.name }}<br>
+                                {% endfor %}
+                                <a href="{{ path('trainingedit', {'id': training.id}) }}"
+                                class="btn btn-info mt-3 mb-3">MODIFIER</a>
+                                <a href="{{ path('deletetrain', {'id': training.id}) }}"
+                                        class="btn btn-warning mt-3 mb-3"
+                                        onclick="return confirm('sure to delete')">DELETE</a>
+                        </div>
+                </div>
+                {% endfor %}
+        </div>
+</main>
+
+{% endblock %}
+
+{% block javascripts %}
+<script>
+    $('.move').selectpicker();
+
+    $( "#btn_form" ).click(function() {
+  $( ".bg" ).slideToggle( "slow" );
+});
+</script>
+{% endblock %}

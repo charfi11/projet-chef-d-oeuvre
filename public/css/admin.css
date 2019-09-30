@@ -1,0 +1,17 @@
+.user_block {
+    display: none;
+}
+
+form {
+    width: 90%;
+}
+
+.icon_del i:hover {
+    color: red;
+    transition: 150ms;
+}
+
+.icon_ed i:hover {
+    color: purple;
+    transition: 150ms;
+}

@@ -1,0 +1,141 @@
+.event_get {
+    display: flex;
+    justify-content: center;
+   text-decoration: none;
+   color: white;
+   background-color:#4169E1;
+   width: 20%;
+   margin-left: 0.1%;
+}
+
+.event_get p {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.event_get:hover {
+    color: white;
+    text-decoration: none;
+    background-color: #4682B4;
+    transition: 200ms;
+}
+
+header {
+    background-color: black;
+    height: 6em;
+    display: flex;
+    color: white;
+}
+
+.event {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+height: 10em;
+margin-top: 2%;
+}
+
+.btn_event {
+    background-color: #4169E1;
+    border-radius: 3.75rem;
+    border: none;
+    height: 70%;
+    width: 40%;
+}
+.btn_event p {
+    display:flex;
+   justify-content: center;
+   margin-top: 6%;
+   font-size: 1.5em;
+}
+
+.btn_event:hover {
+    background-color: 	#4682B4;
+    transition: 200ms;
+    transform: scale(1.01);
+}
+
+.bloc_event {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: auto;
+    background-color: #F7eedb;
+    border: solid;
+    border-radius: 3.75rem;
+    margin-top: 1%;
+    color: #708090;
+}
+
+.place_bloc_event {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.boucle_categorie_event {
+    display: flex;
+    justify-content: center;
+}
+
+.box-form {
+    border-radius: 1rem; 
+    box-shadow: 0 0.3rem 1rem 0 rgba(0, 0, 0, 0.4); 
+    width: 70%; 
+    height: auto; 
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  form {
+      width: 90%;
+  }
+
+  label {
+      color: white;
+      margin-bottom: 1%;
+      margin-top: 2%;
+  }
+
+  .bg {
+      display: none;
+  }
+
+  .categorieeventtitle {
+      display: none;
+  }
+
+  .card_event {
+      width: 100%;
+      color: white;
+      border-radius: 0%!important;
+  }
+
+  @media screen and (max-width: 500px){
+    .box-form {
+        width: 90%;
+    }
+    h1 {
+        font-size: 2.5em;
+    }
+    h2 {
+        font-size: 2em;
+    }
+    .boucle_categorie_event{
+        display: flex;
+        flex-direction: column;
+        display: none;
+    }
+    .boucle_categorie_event a{
+        width: 100%;
+    }
+    .categorieeventtitle {
+        display: block;
+    }
+    .categorieeventtitle:hover{
+        cursor: pointer;
+    }
+   }

@@ -1,0 +1,91 @@
+<div class="d-flex justify-content-start mb-4" id="btn_mess">
+    <div class="card card-mess {% if messages is not null and messages == true %} btn-danger{% endif %}" style="width: 5%;">
+        <div class="card-body">
+<i class="far fa-envelope fa-2x"> {{ messages|length }}</i>
+</div>
+</div>
+</div>
+
+<div id="box_mess">
+<div class="d-flex flex-column align-items-center">
+{% for messages in showgroupe.messages | reverse %}
+<div class="card" style="width: 40%;">
+  <div class="card-body d-flex justify-content-around">
+    {{ messages.mess }}
+    <a href="{{ path('deleteMessage', {"message_id": messages.id, "id": groupId}) }}"  onclick="return confirm('sure to delete')" class="btn btn-warning"><i class="far fa-trash-alt"></i></a>
+  </div>
+</div>
+{% endfor %}
+</div>
+</div>
+
+{% if message is not null and message == true %} btn-danger{% endif %}"
+
+if($request->isXmlHttpRequest()){
+            $message->setMess($request->request->get('message'));
+            $message->setMessGroupe($groupes);
+            $message->setVue(true);
+     
+            $manager->persist($message);
+         $manager->flush();
+
+         return new JsonResponse();
+
+        }
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Message</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        {{ form_start(message, {'attr': {'class' : 'form-test'}}) }}
+        {{ form_widget(message) }}
+        <button type="submit" class="btn btn-success" id="btn_form_message" data-url="{{ path('show_groupe', {'id': groupId}) }}">envoyer</button>
+        {{ form_end(message) }}
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-secondary" data-dismiss="modal" >Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+groupe::
+<div class="d-flex">
+    <div class="bggroup">
+        <div class="d-flex flex-column justify-content-center mx-auto my-2 px-4 py-2 mt-5 mb-5 box-form">
+      {{ form_start(FormImgGrp) }}
+      {{ form_row(FormImgGrp) }}
+      <button class="btn btn-success mb-2">valider</button>
+      {{ form_end(FormImgGrp) }}
+      </div>
+    </div>
+  </div>
+
+  if($formImgGrp->isSubmitted()){
+            $img = $formImgGrp->get('img')->getData();
+            if($img != null){
+                $imageName = $grp->getAvatarName().'.'.$img->guessExtension();
+                $img->move(
+                    $this->getParameter(('image_directory')),
+                    $imageName
+                );
+                $grp->setImg($imageName);
+            }
+
+        $this->addFlash(
+            'success',
+            'L\'image a bien étée mis à jour.');
+                }
+
+$img = $grp->getImg();
+
+ $formImgGrp->handleRequest($request);
+ $formImgGrp = $this->createForm(EditGrpImgType::class, $grp);
+'FormImgGrp' => $formImgGrp->createView(),

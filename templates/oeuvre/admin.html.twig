@@ -1,0 +1,105 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+<link rel="stylesheet" href="/css/admin.css">
+{% endblock %}
+{% block title %}Admin{% endblock %}
+
+{%  block body %}
+
+<main>
+        <h1 class="mt-3 mb-3">ADMIN</h1>
+        <button class="btn btn-primary" id="btn_move">Gèrer les mouvements</button>
+        <button class="btn btn-primary" id="btn_user">Gèrer les utilisateurs</button>
+
+<div class="move_form">
+        <h2 class="mt-4">Ajouter un mouvement</h2>
+        <div class="bg">
+        <div class="d-flex flex-column justify-content-center mx-auto my-2 px-4 py-2 mt-5 mb-5 box-form">
+
+        {{ form_start(CreateType) }}
+
+        {{ form_widget(CreateType) }}
+        <div class="mb-2">
+        <button type="submit" class="btn btn-success">valider</button>
+        <a href="{{path('moveshow')}}" class="btn btn-info">Modifier</a>
+      </div>
+        {{ form_end(CreateType) }}
+
+    </div>
+    </div>
+    </div>
+
+        <div class="user_block mt-3 mb-3">
+        <table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Username</th>
+      <th scope="col">Name</th>
+      <th scope="col">Mail</th>
+      <th scope="col">Supprimer</th>
+    </tr>
+  </thead>
+  {% for user in user %}
+  <tbody>
+    <tr class="table-light">
+      <td>{{ user.username }}</td>
+      <td>{{ user.name }}</td>
+      <td>{{ user.mail }}</td>
+      <td><a type="submit" class="btn btn-danger" href="{{ path('deleteUser', {'id': user.id}) }}" onclick="return confirm('sure to delete')" >supprimer</a></td>
+    </tr>
+  </tbody>
+  {% endfor %}
+</table> 
+</div>
+</main>
+
+{% for class, messages in app.flashes %}
+    {% for message in messages %}
+        <div class="flash-{{ class }}">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endfor %}
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modifier</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+                {{ form_start(CreateType) }}
+        
+                {{ form_widget(CreateType) }}
+                <div class="mb-2">
+                <button type="submit" class="btn btn-success">valider</button>
+              </div>
+                {{ form_end(CreateType) }}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block javascripts %}
+<script>
+$( "#btn_user" ).click(function() {
+  $( ".user_block" ).slideToggle( "slow" );
+  $('.move_form').hide('slow');
+});
+
+$( "#btn_move" ).click(function() {
+  $( ".move_form" ).slideToggle( "slow" );
+  $('.user_block').hide('slow');
+});
+</script>
+
+{% endblock %}

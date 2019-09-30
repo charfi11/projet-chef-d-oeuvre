@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+<link href="/css/connexion.css" rel="stylesheet">
+{% endblock %}
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+<h1 class="mb-3 mt-3">Inscription</h1>
+<div class="bg">
+    <div class="d-flex flex-column justify-content-center mx-auto my-2 px-4 py-2 mt-5 mb-5 box-form">
+{{ form_start(FormInscriptionType) }}
+{{ form_row(FormInscriptionType.name, {'label' : 'Nom/Prénom'}) }}
+{{ form_row(FormInscriptionType.username, {'label' : 'Pseudonyme'}) }}
+{{ form_row(FormInscriptionType.password, {'label' : 'Mot de passe'}) }}
+{{ form_row(FormInscriptionType.confirmPass, {'label' : 'Confirmez le mot de passe'}) }}
+{{ form_row(FormInscriptionType.mail, {'label' : 'Adresse mail'}) }}
+{{ form_row(FormInscriptionType.img, {'label' : 'Ajouter une image'}) }}
+<button type="submit" class="btn btn-success mt-3 mb-2">valider</button>
+</div>
+</div>
+{{ form_end(FormInscriptionType) }}
+
+{% endblock %}

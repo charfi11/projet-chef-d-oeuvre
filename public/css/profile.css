@@ -1,0 +1,79 @@
+.block_profile {
+    background: rgba(0,0,0,0.5);
+}
+
+.card img {
+    filter: contrast(50%);
+}
+
+.card:hover img {
+    filter: contrast(100%);
+    transition: 200ms;
+}
+
+.card:hover {
+    transform: scale(1.02);
+    transition: 250ms;
+}
+
+hr.hr {
+    border: 1px solid;
+  }
+
+  .btn_profil {
+      display: none;
+  }
+
+  @media screen and (max-width: 500px){
+    .groupe_show {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .block_form_profile {
+        display: none;
+      }
+    .card {
+        margin-bottom: 5%;
+    }
+    .box-form {
+        width: 90%;
+    }
+    h1 {
+        font-size: 2.5em;
+    }
+    h2 {
+        font-size: 2em;
+    }
+    .profil_user {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0!important;
+    }
+    .profil_user img {
+        margin-top: 5%;
+        margin-left: 2%;
+        border-radius: 50%!important;
+        width:70px!important;
+        height:70px!important;
+    }
+    .block_profile {
+        margin: 0!important;
+        width: 100%!important;
+        background-color: rgba(0,0,0,0.5);
+    }
+    .form_img {
+        display: none;
+    }
+    .bg {
+        display: none;
+    }
+    .title_profil{
+        display: none;
+    }
+    .btn_profil {
+        display: block;
+    }
+}
+  

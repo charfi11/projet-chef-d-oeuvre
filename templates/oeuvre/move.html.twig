@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+<link href="../css/move.css"  rel="stylesheet">
+{% endblock %}
+{% block title %}{% endblock %}
+
+{%  block body %}
+
+<div class="categorietitle bg-warning text-white">Choisir catégorie</div>
+        <div class="boucle_categorie_move">
+                {% for categorieMoves in typeMove %}
+                <a href="{{path('move',{'id': categorieMoves.id})}}" class="move_get bg-primary"><p>{{categorieMoves.name}}</p></a>
+                {% endfor %}
+                </div>
+
+<div id="content">
+{% for moves in moveshow %}
+
+    <div class="bloc_move" data-toggle="modal" data-target="#move{{moves.id}}">
+        <a href="#" class="card_move">
+        <div class="tuto">
+        {{moves.tutoriel|raw}}
+        </div>
+        <div class="move_content">
+            <div class="move_content_first">
+                <p class="title_move">{{moves.name}}</p>
+                <p class="level_move">Difficulte: {{moves.difficulte}}</p>
+            </div>
+        <p class="resume_move">{{moves.resume}}</p>
+        </div>
+    </a>
+</div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="move{{moves.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">{{moves.name}}</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <div class="cModalIframeConteneur">
+                        <div> {{moves.tutoriel|raw}}
+                          </div>
+                        </div>
+                  <p class="text-white">{{moves.resume}}</p>
+                  <p class="text-white">Difficulte: {{moves.difficulte}}</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+{% endfor %}
+</div>
+
+{% endblock %}
+
+{% block javascripts %}
+
+<script>
+  $( ".categorietitle" ).click(function() {
+  $( ".boucle_categorie_move" ).slideToggle( "slow" );
+});
+</script>
+
+{% endblock %}

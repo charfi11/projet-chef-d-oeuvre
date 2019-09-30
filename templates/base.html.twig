@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Street Project{% block title %}{% endblock %}</title>
+    <script src="https://kit.fontawesome.com/6fb900568b.js"></script>
+    <link href="https://bootswatch.com/4/cyborg/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
+    {#<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> #}
+    <link href="/css/style.css" rel="stylesheet">
+    {% block stylesheets %}{% endblock %}
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+      $(window).ready(function(){
+        $('.loader').fadeOut(1000);
+      })
+    </script>
+</head>
+
+<body>
+  <div class="bg-light position-fixed loader" style="height: 100vh; width: 100vw; z-index: 1000;">
+    <div class="h-100 w-100 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+  </div>
+  </div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="{{ path('index') }}">Street Project</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor02">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active ml-4">
+        <a class="nav-link" href="{{ path('index') }}"><i class="fas fa-home"></i> Accueil</a>
+      </li>
+      <li class="nav-item active ml-3">
+        <a class="nav-link" href="{{ path('groupe') }}"><i class="fas fa-users"></i> Groupe</a>
+      </li>
+      <li class="nav-item active ml-3">
+        <a class="nav-link" href="{{ path('training') }}"><i class="far fa-clipboard"></i> Entraînement</a>
+      </li>
+      <li class="nav-item active ml-3">
+        <a class="nav-link" href="{{ path('event') }}"><i class="far fa-clipboard"></i> Evénement</a>
+      </li>
+      <li class="nav-item active ml-3">
+        <a class="nav-link" href="{{ path('move') }}"><i class="fas fa-compact-disc"></i> Mouvements</a>
+      </li>
+    </ul>
+      {% if not app.user %}
+      <div class="nav-item d-flex nav_co">
+        <a class="nav-link" href="{{ path('login') }}"><i class="fas fa-user-ninja"></i> Connexion</a>
+        <a class="nav-link" href="{{ path('user') }}">Inscription</a>
+      {% else %}
+      <a class="nav-link profil_nav" href="{{ path('user_profil') }}"><img src="/img/{{ app.user.img | raw }}" class="rounded-circle mr-3"></img>Mon profil</a>
+        <a class="nav-link" href="{{ path('logout') }}"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+      {% endif %}
+  </div>
+</nav>
+            <main>
+              {% block body %}
+              {% endblock %}
+            </main>
+              <!-- Footer -->
+<footer class="page-footer font-small blue pt-4 bg-light">
+
+    <!-- Footer Links -->
+    <div class="container-fluid text-center text-md-left">
+  
+      <!-- Grid row -->
+      <div class="row">
+  
+        <!-- Grid column -->
+        <div class="col-md-6 mt-md-0 mt-3">
+  
+          <!-- Content -->
+          <div class="d-flex">
+          <h5 class="text-uppercase mt-3">Street Project</h5>
+          <p class="megaman ml-1 mt-1">L</p>
+        </div>
+          <p class="text-white">Application pour vous organiser avec votre crew.
+          </p>
+  
+        </div>
+        <!-- Grid column -->
+  
+        <hr class="clearfix w-100 d-md-none pb-3">
+  
+        <!-- Grid column -->
+        <div class="col-md-3 mb-md-0 mb-3">
+  
+          <!-- Links -->
+          <h5 class="text-uppercase">Sections:</h5>
+  
+          <ul class="list-unstyled">
+            <li>
+              <a href="{{ path('groupe') }}">Groupe</a>
+            </li>
+            <li>
+              <a href="{{ path('training') }}">Entraînement</a>
+            </li>
+            <li>
+              <a href="{{ path('event') }}">Evénement</a>
+            </li>
+            <li>
+              <a href="{{ path('move') }}">Mouvements</a>
+            </li>
+          </ul>
+  
+        </div>
+        <!-- Grid column -->
+  
+      </div>
+      <!-- Grid row -->
+  
+    </div>
+    <!-- Footer Links -->
+  
+    <!-- Copyright -->
+    <div class="d-flex justify-content-center footer-copyright text-center py-3">
+      <p class="text-white">© 2019 Copyright: Mohamed Charfi</p>
+    </div>
+    <!-- Copyright -->
+  
+  </footer>
+  <!-- Footer -->
+<script src="/js/ajaxMess.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
+{% block javascripts %}
+
+{% endblock %}
+</body>
+
+</html>
