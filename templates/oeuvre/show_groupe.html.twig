@@ -149,7 +149,9 @@
     <div class="card" style="width: 100%;">
       <div class="card-body">
         {{ messages.mess }}
+        {% if showgroupe.user == app.user %}
         <a href="{{ path('deleteMessage', {"message_id": messages.id, "id": groupId}) }}"  onclick="return confirm('sure to delete')" class="btn btn-warning"><i class="far fa-trash-alt"></i></a>
+      {% endif %}
       </div>
     </div>
     {% endfor %}
