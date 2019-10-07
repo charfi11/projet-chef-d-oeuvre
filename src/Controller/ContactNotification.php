@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Entity\User;
 use Twig\Environment;
-use App\Entity\Groupe;
 
 class ContactNotification {
 

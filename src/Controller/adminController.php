@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\User;
-use App\Entity\Groupe;
 use App\Entity\ListMove;
 use App\Form\FormMoveType;
 use App\Repository\UserRepository;

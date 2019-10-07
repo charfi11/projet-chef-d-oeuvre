@@ -2,16 +2,12 @@
 
 namespace App\Controller;
 
-use App\Entity\Groupe;
 use App\Entity\ListMove;
 use App\Entity\Training;
 use App\Form\FormTrainingType;
-use App\Repository\GroupeRepository;
 use App\Repository\TrainingRepository;
-use App\Repository\UserRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
-use Proxies\__CG__\App\Entity\Groupe as ProxiesGroupe;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
