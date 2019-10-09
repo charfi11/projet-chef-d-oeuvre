@@ -15,6 +15,9 @@ class moveController extends AbstractController
      */
     public function move(Request $request, ListMoveRepository $moveRepo, CategorieMoveRepository $categorieMoveRepo)
     {
+
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        
         if($request->query->get('id') != null){
             $id = $request->query->get('id');
             $categorieMoveShow = $categorieMoveRepo->find($id);
